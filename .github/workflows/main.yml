@@ -27,12 +27,11 @@ jobs:
           CI: true
       # 部署到腾讯云服务器
       - name: 部署
-        uses: AEnterprise/rsync-deploy@v1.0
-        env:
-          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}   # 引用配置，SSH私钥
-          ARGS: -avz --delete --exclude='*.pyc'   # rsync参数，排除.pyc文件
-          SERVER_PORT: '22'  # SSH端口
-          FOLDER: ./dist/*  # 要推送的文件夹，路径相对于代码仓库的根目录
-          SERVER_IP: ${{ secrets.REMOTE_HOST }}  # 引用配置，服务器的host名（IP或者域名domain.com）
-          USERNAME: ${{ secrets.REMOTE_USER }}  # 引用配置，服务器登录名
-          SERVER_DESTINATION: /opt/website/   # 部署到目标文件夹
+        uses: hengkx/ssh-deploy@v1.0.1
+        with: # 以下为参数
+          USERNAME: ${{ secrets.REMOTE_USER }} # 为了用户信息安全对敏感数据可以在secrets中配置请看下图
+          PASSWORD: ${{ secrets.REMOTE_PASS }}
+          HOST: ${{ secrets.REMOTE_HOST }}
+          SOURCE: 'dist'
+          TARGET: '/opt/website/'
+          AFTER_COMMAND: 'npm run stop && npm install --production && npm run start'
