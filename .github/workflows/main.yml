@@ -34,4 +34,3 @@ jobs:
           HOST: ${{ secrets.REMOTE_HOST }}
           SOURCE: 'dist'
           TARGET: '/opt/website/'
-          AFTER_COMMAND: 'npm run start'

@@ -3,7 +3,7 @@
 <el-row :gutter="15">
     <el-col :span="6">
        <CupCard class="crad-item">
-        <div></div>
+        <div>成功咯</div>
       </CupCard>
     </el-col>
     <el-col :span="6">
