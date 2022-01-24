@@ -10,7 +10,7 @@ export const menus: Array<MenuRecordRaw> = [
   {
     path: '/home',
     name: 'Home',
-    title: 'Home',
+    title: 'Dashboard',
     icon: 'Menu'
   },
   {

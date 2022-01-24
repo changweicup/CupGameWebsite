@@ -135,7 +135,7 @@ const linkTo = (e: { fullPath: any }) => {
   width: 100%;
   background-color: var(--el-color-white);
   z-index: 99;
-  padding: 6px 0px;
+  padding: 6px;
 }
 
 .tags-main-box {
@@ -155,6 +155,7 @@ const linkTo = (e: { fullPath: any }) => {
   padding: 0 20px;
   margin-right: 6px;
   cursor: pointer;
+  box-shadow: var(--el-primary-color-lighter) 0px 0px 30px 5px inset;
 }
 .active-item {
   color: var(--el-color-primary);

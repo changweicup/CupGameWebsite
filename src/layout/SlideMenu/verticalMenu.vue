@@ -7,14 +7,9 @@
       'width': `${commonStore.isCollapse ? ThemeConfig.SlideMenuMinWidth : ThemeConfig.SlideMenuWidth}px`
     }"
   >
-    <div
-      class="special-button-box"
-    >
-      <Button v-if="!commonStore.isCollapse">写笔记</Button>
-    </div>
     <el-scrollbar
       :style="{
-        'height': `calc(100% - ${ThemeConfig.HeaderHeight + 120}px)`
+        'height': `calc(100% - ${ThemeConfig.HeaderHeight + 40}px)`
       }"
     >
       <el-menu class="el-menu-vertical" :default-active="activeIndex">
@@ -40,7 +35,6 @@ import MenuTree from './MenuTree.vue'
 import Icon from '@/components/Icon/index.vue'
 import { useCommonStore } from '@/stores/modules/commonStore'
 import { useRoute } from 'vue-router'
-import Button from './component/Button.vue'
 
 const commonStore = useCommonStore()
 const route = useRoute()
@@ -90,6 +84,7 @@ const handleCollapse = () => {
   border-right: none;
 }
 .el-menu-vertical {
+  padding-top: 6px;
   width: 100%;
 }
 .slide-menu-collapse {
