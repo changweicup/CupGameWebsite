@@ -6,8 +6,8 @@
       :index="item.name"
     >
       <template #title>
-        <Icon :name="item.icon"></Icon>
-        <span>{{ item.title }}</span>
+        <Icon v-if="item.icon" :name="item.icon"></Icon>
+        <span class="el-menu-item-title">{{ item.title }}</span>
       </template>
       <menu-tree :menuList="item.children"></menu-tree>
     </el-sub-menu>
@@ -16,8 +16,8 @@
         <template #reference>
           <el-menu-item :key="item.path" :index="item.path">
             <template #title>
-              <Icon :name="item.icon"></Icon>
-              <span v-show="!commonStore.isCollapse">{{ item.title }}</span>
+              <Icon v-if="item.icon" :name="item.icon"></Icon>
+              <span class="el-menu-item-title" v-show="!commonStore.isCollapse">{{ item.title }}</span>
             </template>
           </el-menu-item>
         </template>
@@ -27,8 +27,8 @@
           class="icon-menu-detail-item icon-active"
           @click="handleMenuClick(ele)"
         >
-          <Icon :name="ele.icon"></Icon>
-          <span class="icon-menu-title">{{ ele.title }}</span>
+          <Icon v-if="ele.icon" :name="ele.icon"></Icon>
+          <span class="icon-menu-title el-menu-item-title">{{ ele.title }}</span>
         </div>
       </el-popover>
     </template>
@@ -40,8 +40,8 @@
       @click="handleMenuClick(item)"
     >
       <template #title>
-        <Icon :name="item.icon"></Icon>
-        <span v-show="!commonStore.isCollapse">{{ item.title }}</span>
+        <Icon v-if="item.icon" :name="item.icon"></Icon>
+        <span class="el-menu-item-title" v-show="!commonStore.isCollapse">{{ item.title }}</span>
       </template>
     </el-menu-item>
   </div>
@@ -92,6 +92,12 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
   border-left: 3px solid #ffffff;
   border-radius: 2px;
 }
+:deep(.el-sub-menu .el-icon) {
+  margin-right: 0px;
+}
+:deep(.el-menu-item .el-icon) {
+  margin-right: 0px;
+}
 .icon-sub-menu {
   display: flex;
   justify-content: center;
@@ -126,5 +132,8 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
 }
 .icon-menu-title {
   margin-left: 10px;
+}
+.el-menu-item-title {
+  margin-left: 5px;
 }
 </style>

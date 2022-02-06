@@ -46,4 +46,7 @@ defineProps({
     vertical-align: middle;
     text-align: center;
   }
+  :deep(.el-icon) {
+    margin-right: 0px;
+  }
 </style>

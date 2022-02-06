@@ -13,7 +13,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: 'home',
         name: 'Home',
-        component: () => import('../views/Dashboard/index.vue'),
+        component: () => import(/* webpackChunkName: "Dashboard" */ '../views/Dashboard/index.vue'),
         meta: {
           title: '首页'
         }
@@ -69,6 +69,14 @@ export const routes: Array<RouteRecordRaw> = [
         }
       }
     ]
+  },
+  {
+    path: '*',
+    name: '/404',
+    component: () => import(/* webpackChunkName: "ErrorPage" */ '../views/ErrorPage/404.vue'),
+    meta: {
+      title: '404'
+    }
   }
 ]
 

@@ -22,20 +22,17 @@ export const menus: Array<MenuRecordRaw> = [
       {
         path: '/authority/users',
         name: 'Users',
-        title: '用户列表',
-        icon: 'Menu'
+        title: '用户列表'
       },
       {
         path: '/authority/roles',
         name: 'Roles',
-        title: '角色列表',
-        icon: 'Menu'
+        title: '角色列表'
       },
       {
         path: '/authority/resource',
         name: 'Resource',
-        title: '资源列表',
-        icon: 'Menu'
+        title: '资源列表'
       }
     ]
   },
