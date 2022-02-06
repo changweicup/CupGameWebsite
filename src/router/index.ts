@@ -71,7 +71,7 @@ export const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '*',
+    path: '/*',
     name: '/404',
     component: () => import(/* webpackChunkName: "ErrorPage" */ '../views/ErrorPage/404.vue'),
     meta: {
