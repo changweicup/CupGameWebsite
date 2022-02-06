@@ -84,12 +84,11 @@ const handleCollapse = () => {
   border-right: none;
 }
 .el-menu-vertical {
-  padding-top: 6px;
   width: 100%;
 }
 .slide-menu-collapse {
   margin-top: 8px;
-  padding-left: 23px;
+  padding-left: 25px;
   cursor: pointer;
 }
 .special-button-box {

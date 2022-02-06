@@ -31,7 +31,7 @@ defineProps({
   },
   name: {
     type: String,
-    default: 'el-Menu-icon'
+    default: 'Pear'
   },
   className: {
     type: String,
@@ -45,8 +45,5 @@ defineProps({
     align-items: center;
     vertical-align: middle;
     text-align: center;
-  }
-  :deep(.el-icon) {
-    margin-right: 0px;
   }
 </style>

@@ -9,7 +9,9 @@ import {
   IceTea,
   Bell,
   PartlyCloudy,
-  Pear
+  Pear,
+  Bowl,
+  Drizzling
 } from '@element-plus/icons-vue'
 
 // 所需的组件
@@ -24,7 +26,9 @@ export const components = [
   IceTea,
   Bell,
   PartlyCloudy,
-  Pear
+  Pear,
+  Bowl,
+  Drizzling
 ]
 // 注册
 export default (app: any) => {
