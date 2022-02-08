@@ -18,40 +18,6 @@
           </div>
         </template>
       </Draggable>
-      <Draggable :list="tabsList" animation="300" item-key="fullPath" class="flex">
-        <template #item="{ element }">
-          <div
-            class="tabs-card-scroll-item"
-            :id="`tag${element.fullPath.split('/').join('\/')}`"
-            :class="{ 'active-item': state.activeKey === element.path }"
-            @click.stop="linkTo(element)"
-          >
-            <div class="tabs-card-title">
-              <span>{{ element.meta.title }}</span>
-            </div>
-            <div style="margin-left: 10px" v-if="element.meta.title !== '首页'">
-              <Icon name="Close" @click.stop="closeTabItem(element)"></Icon>
-            </div>
-          </div>
-        </template>
-      </Draggable>
-      <Draggable :list="tabsList" animation="300" item-key="fullPath" class="flex">
-        <template #item="{ element }">
-          <div
-            class="tabs-card-scroll-item"
-            :id="`tag${element.fullPath.split('/').join('\/')}`"
-            :class="{ 'active-item': state.activeKey === element.path }"
-            @click.stop="linkTo(element)"
-          >
-            <div class="tabs-card-title">
-              <span>{{ element.meta.title }}</span>
-            </div>
-            <div style="margin-left: 10px" v-if="element.meta.title !== '首页'">
-              <Icon name="Close" @click.stop="closeTabItem(element)"></Icon>
-            </div>
-          </div>
-        </template>
-      </Draggable>
     </div>
   </div>
 </template>
