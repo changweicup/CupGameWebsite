@@ -21,9 +21,6 @@ module.exports = {
   lintOnSave: false,
   // 自定义webpack配置
   configureWebpack: {
-    output: {
-      jsonpFunction: 'webpackJsonp-main-vue3'
-    },
     module: {
       rules: [{
         test: /\.mjs$/,
@@ -44,17 +41,5 @@ module.exports = {
         resolvers: [ElementPlusResolver()]
       })
     ]
-  },
-  chainWebpack: config => {
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap(options => {
-        options.compilerOptions = {
-          ...(options.compilerOptions || {}),
-          isCustomElement: (tag) => /^micro-app/.test(tag)
-        }
-        return options
-      })
   }
 }

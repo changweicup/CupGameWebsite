@@ -7,7 +7,7 @@
         :index="item.name"
       >
         <template #title>
-          <Icon :name="item.icon" size="18" style="margin-right: 5px;"></Icon>
+          <Icon :name="item.icon" size="18"></Icon>
           <span class="el-menu-item-title">{{ item.title }}</span>
         </template>
         <template v-for="subItem in item.children" :key="subItem.path">
@@ -17,7 +17,7 @@
             @click="handleMenuClick(subItem)"
           >
             <template #title>
-              <Icon :name="subItem.icon" size="18" style="margin: 0 5px;"></Icon>
+              <Icon :name="subItem.icon" size="18" style="margin-left: 5px;"></Icon>
               <span class="el-menu-item-title" v-show="!commonStore.isCollapse">{{ subItem.title }}</span>
             </template>
           </el-menu-item>
@@ -33,7 +33,7 @@
         @click="handleMenuClick(item)"
       >
         <template #title>
-          <Icon :name="item.icon" size="18" style="margin-right: 5px;"></Icon>
+          <Icon :name="item.icon" size="18"></Icon>
           <span class="el-menu-item-title" v-show="!commonStore.isCollapse">{{ item.title }}</span>
         </template>
       </el-menu-item>
@@ -54,7 +54,7 @@
           class="icon-menu-detail-item icon-active"
           @click="handleMenuClick(ele)"
         >
-          <Icon v-if="ele.icon" :name="ele.icon" size="18" style="margin-right: 5px;"></Icon>
+          <Icon v-if="ele.icon" :name="ele.icon" size="18"></Icon>
           <span class="icon-menu-title el-menu-item-title">{{ ele.title }}</span>
         </div>
       </el-popover>
@@ -104,12 +104,13 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
 :deep(.el-menu-item) {
   height: 48px;
   line-height: 48px;
-  margin: 5px;
+  margin: 3px;
+  box-sizing: border-box;
 }
 :deep(.el-sub-menu__title) {
   height: 48px;
   line-height: 48px;
-  margin: 0 5px;
+  margin: 0 3px;
 }
 :deep(.el-sub-menu__title:hover) {
   border-radius: 10px;

@@ -22,7 +22,7 @@ export const routes: Array<RouteRecordRaw> = [
         path: 'app-vue2/:page*',
         name: 'app-vue2',
         component: () =>
-          import(/* webpackChunkName: "vue2" */ '../views/vue2.vue'),
+          import(/* webpackChunkName: "vue2" */ '../views/users.vue'),
         meta: {
           title: 'app-vue2'
         }
@@ -31,7 +31,7 @@ export const routes: Array<RouteRecordRaw> = [
         path: 'app-vue3/:page*',
         name: 'app-vue3',
         component: () =>
-          import(/* webpackChunkName: "vue3" */ '../views/vue3.vue'),
+          import(/* webpackChunkName: "vue3" */ '../views/users.vue'),
         meta: {
           title: 'app-vue3'
         }

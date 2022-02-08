@@ -1,5 +1,4 @@
 <template>
-<div>
 <el-row :gutter="15">
     <el-col :span="6">
        <CupCard class="crad-item">
@@ -48,7 +47,6 @@
       </CupCard>
     </el-col>
   </el-row>
-</div>
 </template>
 <script lang="ts" setup>
 </script>

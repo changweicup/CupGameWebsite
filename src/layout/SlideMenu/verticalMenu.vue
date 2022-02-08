@@ -79,6 +79,7 @@ const handleCollapse = () => {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.5s;
+  z-index: 99;
 }
 .el-menu {
   border-right: none;

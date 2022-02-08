@@ -9,17 +9,17 @@
           top: `${ThemeConfig.HeaderHeight}px`,
           minHeight: `calc(100vh - ${ThemeConfig.HeaderHeight}px)`,
           marginLeft: `${!commonStore.isCollapse ? ThemeConfig.SlideMenuWidth : ThemeConfig.SlideMenuMinWidth}px`,
-          width: `calc(100% - ${(commonStore.isCollapse ? ThemeConfig.SlideMenuMinWidth : ThemeConfig.SlideMenuWidth) + 30}px)`
+          width: `calc(100% - ${commonStore.isCollapse ? ThemeConfig.SlideMenuMinWidth : ThemeConfig.SlideMenuWidth}px)`
         }"
       >
         <TagView v-if="ThemeConfig.isTagsMenu"></TagView>
-        <PageContainer>
-          <router-view v-slot="{ Component }">
-            <transition name="el-fade-in-linear" mode="out-in" appear>
+        <router-view v-slot="{ Component }">
+          <transition name="el-fade-in-linear" mode="out-in" appear>
+            <PageContainer>
               <component :is="Component" />
-            </transition>
-          </router-view>
-        </PageContainer>
+            </PageContainer>
+          </transition>
+        </router-view>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@ import SlideMenu from './SlideMenu/verticalMenu.vue'
 import TagView from './TagView/index.vue'
 import { ThemeConfig } from '../themeConfig'
 import { useCommonStore } from '@/stores/modules/commonStore'
-import PageContainer from '../components/Pages/PageContainer.vue'
+import PageContainer from './Page/PageContainer.vue'
 
 const commonStore = useCommonStore()
 
@@ -40,7 +40,6 @@ const commonStore = useCommonStore()
 <style lang="scss" scoped>
 .layout-content {
   display: flex;
-  justify-content: space-between;
 }
 .micro-layout-container {
   position: relative;

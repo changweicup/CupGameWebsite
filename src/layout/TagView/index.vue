@@ -9,7 +9,41 @@
             :class="{ 'active-item': state.activeKey === element.path }"
             @click.stop="linkTo(element)"
           >
-            <div>
+            <div class="tabs-card-title">
+              <span>{{ element.meta.title }}</span>
+            </div>
+            <div style="margin-left: 10px" v-if="element.meta.title !== '首页'">
+              <Icon name="Close" @click.stop="closeTabItem(element)"></Icon>
+            </div>
+          </div>
+        </template>
+      </Draggable>
+      <Draggable :list="tabsList" animation="300" item-key="fullPath" class="flex">
+        <template #item="{ element }">
+          <div
+            class="tabs-card-scroll-item"
+            :id="`tag${element.fullPath.split('/').join('\/')}`"
+            :class="{ 'active-item': state.activeKey === element.path }"
+            @click.stop="linkTo(element)"
+          >
+            <div class="tabs-card-title">
+              <span>{{ element.meta.title }}</span>
+            </div>
+            <div style="margin-left: 10px" v-if="element.meta.title !== '首页'">
+              <Icon name="Close" @click.stop="closeTabItem(element)"></Icon>
+            </div>
+          </div>
+        </template>
+      </Draggable>
+      <Draggable :list="tabsList" animation="300" item-key="fullPath" class="flex">
+        <template #item="{ element }">
+          <div
+            class="tabs-card-scroll-item"
+            :id="`tag${element.fullPath.split('/').join('\/')}`"
+            :class="{ 'active-item': state.activeKey === element.path }"
+            @click.stop="linkTo(element)"
+          >
+            <div class="tabs-card-title">
               <span>{{ element.meta.title }}</span>
             </div>
             <div style="margin-left: 10px" v-if="element.meta.title !== '首页'">
@@ -132,20 +166,21 @@ const linkTo = (e: { fullPath: any }) => {
   position: fixed;
   box-sizing: border-box;
   height: 42px;
-  width: 100%;
+  width: inherit;
   background-color: var(--el-color-white);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   z-index: 99;
-  padding: 6px;
 }
 
 .tags-main-box {
   display: flex;
   flex-direction: row;
+  overflow-x: auto;
+    padding: 6px;
 }
 .tabs-card-scroll-item {
   display: flex;
   align-items: center;
-  box-sizing: border-box;
   background: #fff;
   height: 30px;
   line-height: 30px;
@@ -157,6 +192,12 @@ const linkTo = (e: { fullPath: any }) => {
   cursor: pointer;
   box-shadow: var(--el-primary-color-lighter) 0px 0px 30px 5px inset;
 }
+.tabs-card-title {
+  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
 .active-item {
   color: var(--el-color-primary);
   background-color: var(--el-color-primary-light-9);
@@ -164,5 +205,24 @@ const linkTo = (e: { fullPath: any }) => {
 }
 .flex {
   display: flex;
+}
+/* 滚动条的宽度 */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* 滚动条的设置 */
+*::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  background-clip: padding-box;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+/* 滚动条鼠标移上去 */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
 }
 </style>
