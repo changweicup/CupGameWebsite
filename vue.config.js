@@ -8,6 +8,7 @@ const {
 module.exports = {
   publicPath: '/',
   productionSourceMap: false,
+
   devServer: {
     hot: false,
     disableHostCheck: true,
@@ -18,7 +19,7 @@ module.exports = {
       errors: true
     }
   },
-  lintOnSave: false,
+
   // 自定义webpack配置
   configureWebpack: {
     module: {

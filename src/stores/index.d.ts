@@ -1,5 +1,5 @@
-import { ITabsViewState } from './modules/tabsView'
-import { CommonState } from './modules/commonStore'
+import { ITabsViewState } from './tabsView'
+import { CommonState } from './commonStore'
 
 export interface IStore {
   tabsView: ITabsViewState;

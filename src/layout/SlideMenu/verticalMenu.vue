@@ -33,15 +33,13 @@ import { ThemeConfig } from '../../themeConfig'
 import { menus } from '../../router/menu'
 import MenuTree from './MenuTree.vue'
 import Icon from '@/components/Icon/index.vue'
-import { useCommonStore } from '@/stores/modules/commonStore'
+import { useCommonStore } from '@/stores/commonStore'
 import { useRoute } from 'vue-router'
 
 const commonStore = useCommonStore()
 const route = useRoute()
 
 const activeIndex = ref()
-
-console.log(location.pathname)
 
 onMounted(() => {
   getActiveIndex()

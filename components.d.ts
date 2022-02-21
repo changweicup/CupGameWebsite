@@ -4,11 +4,12 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CupCard: typeof import('./src/components/Pages/CupCard.vue')['default']
+    CupCard: typeof import('./src/components/CupCard/index.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -23,8 +24,8 @@ declare module 'vue' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
+    Flot: typeof import('./src/components/Flot/index.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
-    PageContainer: typeof import('./src/components/Pages/PageContainer.vue')['default']
   }
 }
 

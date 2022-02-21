@@ -12,7 +12,7 @@
             <div class="tabs-card-title">
               <span>{{ element.meta.title }}</span>
             </div>
-            <div style="margin-left: 10px" v-if="element.meta.title !== '首页'">
+            <div class="tabs-card-close-button" style="margin-left: 10px" v-if="element.meta.title !== '首页'">
               <Icon name="Close" @click.stop="closeTabItem(element)"></Icon>
             </div>
           </div>
@@ -30,7 +30,7 @@ import {
 import Icon from '@/components/Icon/index.vue'
 import Draggable from 'vuedraggable'
 import { TAGS_ROUTES } from '@/utils/storeKeys'
-import { useTabsViewStore, RouteItem } from '@/stores/modules/tabsView'
+import { useTabsViewStore, RouteItem } from '@/stores/tabsView'
 import { RouteLocationNormalizedLoaded, useRoute, useRouter } from 'vue-router'
 import { storage } from '@/utils/storage'
 import { ElMessage } from 'element-plus'
@@ -80,16 +80,12 @@ tabsViewStore.initTabs(cacheRoutes)
 // 标签页列表
 const tabsList: any = computed(() => tabsViewStore.tabsList)
 
-const whiteList: string[] = []
-
-// 监听路由1
+// 监听路由
 watch(
   () => route.fullPath,
   (to) => {
-    if (whiteList.includes(route.name as string)) return
     state.activeKey = to
     tabsViewStore.addTabs(getSimpleRoute(route))
-    // updateNavScroll(true)
   },
   { immediate: true }
 )
@@ -168,6 +164,10 @@ const linkTo = (e: { fullPath: any }) => {
   color: var(--el-color-primary);
   background-color: var(--el-color-primary-light-9);
   border-color: var(--el-border-color-lighter);
+}
+.tabs-card-close-button:hover {
+  background-color: var(--el-border-color-lighter);
+  border-radius: 50%;
 }
 .flex {
   display: flex;

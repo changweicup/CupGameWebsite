@@ -30,11 +30,10 @@ import Header from './Header/index.vue'
 import SlideMenu from './SlideMenu/verticalMenu.vue'
 import TagView from './TagView/index.vue'
 import { ThemeConfig } from '../themeConfig'
-import { useCommonStore } from '@/stores/modules/commonStore'
+import { useCommonStore } from '@/stores/commonStore'
 import PageContainer from './Page/PageContainer.vue'
 
 const commonStore = useCommonStore()
-
 </script>
 
 <style lang="scss" scoped>

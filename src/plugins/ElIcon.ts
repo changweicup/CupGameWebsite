@@ -1,3 +1,4 @@
+import { App } from 'vue'
 import {
   Location,
   Document,
@@ -31,7 +32,7 @@ export const components = [
   Drizzling
 ]
 // 注册
-export default (app: any) => {
+export default (app:App<Element>):void => {
   components.forEach((component) => {
     app.component(`el-${component.name}-icon`, component)
   })

@@ -1,22 +1,24 @@
 <template>
-<el-row :gutter="15">
+  <el-row :gutter="15">
     <el-col :span="6">
-       <CupCard class="crad-item">
+      <CupCard class="crad-item">
         <div>成功咯</div>
       </CupCard>
     </el-col>
     <el-col :span="6">
-       <CupCard class="crad-item">
+      <CupCard class="crad-item">
+        <div>
+          <el-button type="primary">哈 喽</el-button>
+        </div>
+      </CupCard>
+    </el-col>
+    <el-col :span="6">
+      <CupCard class="crad-item">
         <div></div>
       </CupCard>
     </el-col>
     <el-col :span="6">
-       <CupCard class="crad-item">
-        <div></div>
-      </CupCard>
-    </el-col>
-    <el-col :span="6">
-       <CupCard class="crad-item">
+      <CupCard class="crad-item">
         <div></div>
       </CupCard>
     </el-col>

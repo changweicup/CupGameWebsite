@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { RouteLocationNormalized } from 'vue-router'
-import { TAGS_ROUTES } from '../../utils/storeKeys'
+import { TAGS_ROUTES } from '../utils/storeKeys'
 
 const whiteList = ['Redirect', 'login']
 
@@ -19,7 +19,7 @@ export const useTabsViewStore = defineStore({
   }),
   getters: {},
   actions: {
-    initTabs (routes: any) {
+    initTabs (routes: RouteItem[]) {
       this.tabsList = routes
     },
     addTabs (route: any): boolean {
