@@ -21,21 +21,9 @@ defineProps({
     type: String,
     default: ''
   },
-  theme: {
-    type: String,
-    default: 'outline'
-  },
-  strokeWidth: {
-    type: Number,
-    default: 3
-  },
   name: {
     type: String,
     default: 'Pear'
-  },
-  className: {
-    type: String,
-    default: 'icon'
   }
 })
 </script>

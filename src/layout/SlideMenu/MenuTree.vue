@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="menu-item-wrap" v-for="item in menuList" :key="item.path">
+    <div class="menu-item-wrap" v-for="item in props.menuList" :key="item.path">
       <transition name="el-fade-in-linear">
         <el-sub-menu
           v-if="item.children && item.children.length > 0 && !commonStore.isCollapse"
@@ -67,18 +67,15 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { defineProps } from 'vue'
 import { RouteLocationRaw, useRouter, useRoute } from 'vue-router'
 import { MenuRecordRaw } from '../../router/menu'
 import Icon from '@/components/Icon/index.vue'
 import { useCommonStore } from '@/stores/commonStore'
 
-defineProps({
-  menuList: {
-    type: Array as () => Array<MenuRecordRaw>,
-    default: () => []
-  }
-})
+type Props = {
+  menuList: Array<MenuRecordRaw>
+}
+const props = defineProps<Props>()
 
 const commonStore = useCommonStore()
 const router = useRouter()

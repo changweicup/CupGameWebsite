@@ -5,7 +5,6 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
-    '@vue/standard',
     '@vue/typescript/recommended'
   ],
   parserOptions: {
@@ -15,6 +14,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-var-requires': 0,
+    'vue/script-setup-uses-vars': 'error',
     "@typescript-eslint/ban-types": [
       "error",
       {
