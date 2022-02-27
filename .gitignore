@@ -2,6 +2,8 @@
 node_modules
 /dist
 /main-vue3
+auto-imports.d.ts
+components.d.ts
 
 
 # local env files

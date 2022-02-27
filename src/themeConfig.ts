@@ -5,8 +5,6 @@ export type ThemeConfigTypes = {
   SlideMenuWidth: number;
   SlideMenuMinWidth: number;
   isTagsMenu: boolean;
-  ElementPlusSize: string;
-  ElementPlusZIndex: number;
 };
 
 export const ThemeConfig: ThemeConfigTypes = {
@@ -27,12 +25,6 @@ export const ThemeConfig: ThemeConfigTypes = {
 
   // 是否显示页签菜单
   isTagsMenu: true,
-
-  // Element Plus 表单size
-  ElementPlusSize: 'mini',
-
-  // Element Plus 弹窗层级
-  ElementPlusZIndex: 3000
 }
 
 document.title = ThemeConfig.title

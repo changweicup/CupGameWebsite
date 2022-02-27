@@ -7,9 +7,22 @@
     </el-col>
     <el-col :span="6">
       <CupCard class="crad-item">
-        <div>
-          <el-button type="primary">哈 喽</el-button>
-        </div>
+        <el-space direction="vertical" alignment="left">
+          <div>
+            <el-button type="primary" @click="submit">哈喽</el-button>
+          </div>
+          <div>
+            <CupRadioButton @change="handleChange" :btnArr="options.btnOptions" :checked="form.checked"></CupRadioButton>
+          </div>
+          <div>
+            <el-radio-group v-model="form.radio1" size="small" @change="change2">
+              <el-radio-button label="New York"></el-radio-button>
+              <el-radio-button label="Washington"></el-radio-button>
+              <el-radio-button label="Los Angeles"></el-radio-button>
+              <el-radio-button label="Chicago"></el-radio-button>
+            </el-radio-group>
+          </div>
+        </el-space>
       </CupCard>
     </el-col>
     <el-col :span="6">
@@ -26,7 +39,9 @@
   <el-row>
     <el-col :span="24">
       <CupCard class="crad-item-1">
-        <div></div>
+        <div>
+          <CupVueEditor />
+        </div>
       </CupCard>
     </el-col>
   </el-row>
@@ -50,8 +65,40 @@
     </el-col>
   </el-row>
 </template>
+
 <script lang="ts" setup>
+import { reactive } from 'vue';
+
+const form = reactive({
+  radio1: 'New York',
+  checked: '3',
+})
+const options = reactive({
+  btnOptions: [
+    { label: '新建需求', value: '1' },
+    { label: '评审需求', value: '2' },
+    { label: '需求归档', value: '3' },
+    { label: '需求动态', value: '4' },
+  ]
+})
+
+const submit = () => {
+  console.log(form);
+}
+
+const handleChange = (value: string) => {
+  form.checked = value;
+}
+
+const change2 = () => {
+  console.log(form.radio1);
+
+}
+
+
+
 </script>
+
 <style lang="scss" scoped>
 .el-row {
   margin-bottom: 15px;
@@ -61,15 +108,15 @@
 }
 
 .crad-item {
-  height: 180px;
+  min-height: 180px;
 }
 .crad-item-1 {
-  height: 400px;
+  min-height: 400px;
 }
 .crad-item-2 {
-  height: 510px;
+  min-height: 510px;
 }
 .crad-item-3 {
-  height: 600px;
+  min-height: 600px;
 }
 </style>

@@ -1,14 +1,12 @@
 <template>
-  <el-config-provider :size="'mini'" :zIndex="zIndex">
+  <el-config-provider :size="'small'" :button="{
+    autoInsertSpace: true,
+  }">
     <router-view />
   </el-config-provider>
 </template>
 
 <script lang="ts" setup>
-import { ThemeConfig } from './themeConfig'
-
-const size: string = ThemeConfig.ElementPlusSize
-const zIndex: number = ThemeConfig.ElementPlusZIndex
 </script>
 
 <style lang="scss">

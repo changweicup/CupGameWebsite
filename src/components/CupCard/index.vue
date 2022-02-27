@@ -24,6 +24,6 @@
 }
 .cup-card-body {
   box-sizing: border-box;
-  padding: 20px 24px 8px;
+  padding: 20px;
 }
 </style>

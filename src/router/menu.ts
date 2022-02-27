@@ -16,7 +16,7 @@ export const menus: Array<MenuRecordRaw> = [
   {
     path: '/authority',
     name: 'Authority',
-    title: '权限管理',
+    title: '系统管理',
     icon: 'Drizzling',
     children: [
       {
