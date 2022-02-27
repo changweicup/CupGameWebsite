@@ -14,9 +14,11 @@
       >
         <TagView v-if="ThemeConfig.isTagsMenu"></TagView>
         <router-view v-slot="{ Component }">
-          <PageContainer>
-            <component :is="Component" />
-          </PageContainer>
+          <transition name="el-fade-in-linear" mode="out-in" appear>
+            <PageContainer>
+              <component :is="Component" />
+            </PageContainer>
+          </transition>
         </router-view>
       </div>
     </div>
