@@ -20,6 +20,12 @@ export const menus: Array<MenuRecordRaw> = [
     icon: 'Drizzling',
     children: [
       {
+        path: '/authority/menu',
+        name: 'Menu',
+        title: '菜单管理',
+        icon: 'Bowl'
+      },
+      {
         path: '/authority/users',
         name: 'Users',
         title: '用户列表',

@@ -1,0 +1,16 @@
+.el-popover {
+  --el-popover-border-radius: var(--el-border-radius-base) !important;
+}
+
+.el-card {
+    --el-card-border-color: var(--el-border-color-light, #ebeef5) !important;
+    --el-card-border-radius: 0px !important;
+    --el-card-padding: 20px !important;
+    --el-card-bg-color: var(--el-color-white) !important;
+}
+
+//表格Table样式
+.el-table {
+  --el-table-header-bg-color: var(--el-color-primary-light-9) !important;
+  --el-table-header-text-color: #000000d9 !important;
+}

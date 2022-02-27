@@ -131,7 +131,7 @@ const linkTo = (e: { fullPath: any }) => {
   width: inherit;
   background-color: var(--el-color-white);
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-  z-index: 99;
+  z-index: 90;
 }
 
 .tags-main-box {

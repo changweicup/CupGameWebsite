@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import Layout from '../layout/index.vue'
+import { ElLoading } from 'element-plus'
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -40,10 +41,20 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/authority',
-    redirect: 'Roles',
+    redirect: {
+      name: 'Menu'
+    },
     component: Layout,
     name: 'Authority',
     children: [
+      {
+        path: 'menu',
+        name: 'Menu',
+        component: () => import('../views/SystemPage/menuPage/index.vue'),
+        meta: {
+          title: '菜单管理'
+        }
+      },
       {
         path: 'roles',
         name: 'Roles',
@@ -85,6 +96,7 @@ const router = createRouter({
   routes
 })
 
+const loadingInstance = ElLoading.service({ target: '.page-container' })
 router.beforeEach((to, from, next) => {
   NProgress.start()
   next()
@@ -92,5 +104,6 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
   NProgress.done()
+  loadingInstance.close();
 })
 export default router

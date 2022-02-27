@@ -10,12 +10,18 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="CupRadioButton">
 import { defineProps, ref, defineEmits } from 'vue';
+
+type radioItem = {
+  name: string,
+  value: string,
+  label: string,
+}
 
 const props = defineProps({
   btnArr: {
-    type: Array,
+    type: Array as () => Array<radioItem>,
     default: () => []
   },
   checked: {

@@ -1,14 +1,16 @@
 <template>
-  <div class="cup-card">
-    <div class="cup-card-body">
-      <slot></slot>
-    </div>
+  <div class="page-card">
+    <transition name="el-fade-in-linear">
+      <div class="page-card-body">
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 <script lang="ts" setup>
 </script>
 <style lang="scss" scoped>
-.cup-card {
+.page-card {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,11 +20,14 @@
   line-height: 1.5715;
   list-style: none;
   font-feature-settings: "tnum", "tnum";
-  position: relative;
   background: #fff;
   border-radius: 2px;
+  width: 100%;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
 }
-.cup-card-body {
+.page-card-body {
   box-sizing: border-box;
   padding: 20px;
 }

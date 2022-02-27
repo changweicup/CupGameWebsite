@@ -1,12 +1,12 @@
 <template>
   <el-row :gutter="15">
     <el-col :span="6">
-      <CupCard class="crad-item">
+      <PageCard class="crad-item">
         <div>成功咯</div>
-      </CupCard>
+      </PageCard>
     </el-col>
     <el-col :span="6">
-      <CupCard class="crad-item">
+      <PageCard class="crad-item">
         <el-space direction="vertical" alignment="left">
           <div>
             <el-button type="primary" @click="submit">哈喽</el-button>
@@ -23,45 +23,45 @@
             </el-radio-group>
           </div>
         </el-space>
-      </CupCard>
+      </PageCard>
     </el-col>
     <el-col :span="6">
-      <CupCard class="crad-item">
+      <PageCard class="crad-item">
         <div></div>
-      </CupCard>
+      </PageCard>
     </el-col>
     <el-col :span="6">
-      <CupCard class="crad-item">
+      <PageCard class="crad-item">
         <div></div>
-      </CupCard>
+      </PageCard>
     </el-col>
   </el-row>
   <el-row>
     <el-col :span="24">
-      <CupCard class="crad-item-1">
+      <PageCard class="crad-item-1">
         <div>
           <CupVueEditor />
         </div>
-      </CupCard>
+      </PageCard>
     </el-col>
   </el-row>
   <el-row :gutter="15">
     <el-col :span="12">
-      <CupCard class="crad-item-2">
+      <PageCard class="crad-item-2">
         <div></div>
-      </CupCard>
+      </PageCard>
     </el-col>
     <el-col :span="12">
-      <CupCard class="crad-item-2">
+      <PageCard class="crad-item-2">
         <div></div>
-      </CupCard>
+      </PageCard>
     </el-col>
   </el-row>
   <el-row>
     <el-col :span="24">
-      <CupCard class="crad-item-3">
+      <PageCard class="crad-item-3">
         <div></div>
-      </CupCard>
+      </PageCard>
     </el-col>
   </el-row>
 </template>

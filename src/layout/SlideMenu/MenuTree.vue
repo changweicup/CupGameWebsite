@@ -98,24 +98,23 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
 :deep(.el-menu-item.is-active) {
   background-color: var(--el-color-primary-light-9);
   color: var(--el-color-primary);
-  border-radius: 10px;
+  border-radius: var(--el-border-radius-base);
+  border-right: 3px solid var(--el-color-primary);
 }
 :deep(.el-menu-item:hover) {
-  border-radius: 10px;
+  border-radius: var(--el-border-radius-base);
 }
 :deep(.el-menu-item) {
   height: 48px;
   line-height: 48px;
-  margin: 3px;
   box-sizing: border-box;
 }
 :deep(.el-sub-menu__title) {
   height: 48px;
   line-height: 48px;
-  margin: 0 3px;
 }
 :deep(.el-sub-menu__title:hover) {
-  border-radius: 10px;
+  border-radius: var(--el-border-radius-base);
 }
 .icon-sub-menu {
   display: flex;
@@ -145,6 +144,6 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
 .icon-active:hover {
   background: var(--el-color-primary-light-9);
   color: var(--el-color-primary);
-  border-radius: 10px;
+  border-radius: var(--el-border-radius-base);
 }
 </style>
