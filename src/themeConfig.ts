@@ -1,5 +1,6 @@
 export type ThemeConfigTypes = {
   PrimaryColor: string;
+  DangerColor: string;
   title: string;
   HeaderHeight: number;
   SlideMenuWidth: number;
@@ -10,6 +11,7 @@ export type ThemeConfigTypes = {
 export const ThemeConfig: ThemeConfigTypes = {
   // 主题色
   PrimaryColor: '#b37feb',
+  DangerColor: '#f56c6c',
 
   // title
   title: 'Cup Games',
@@ -25,6 +27,7 @@ export const ThemeConfig: ThemeConfigTypes = {
 
   // 是否显示页签菜单
   isTagsMenu: true,
+
 }
 
 document.title = ThemeConfig.title

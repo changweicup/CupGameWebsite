@@ -1,7 +1,7 @@
 <template>
   <el-config-provider
    :locale="locale"
-    :size="'small'"
+    :size="'default'"
     :button="{
       autoInsertSpace: true,
     }">

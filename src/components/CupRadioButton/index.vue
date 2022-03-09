@@ -1,6 +1,6 @@
 <template>
   <div class="cup-adio-button">
-    <el-radio-group v-model="checkedValue" size="small" @change="handleClick">
+    <el-radio-group v-model="checkedValue" @change="handleClick">
       <el-radio-button
         :label="item.value"
         :key="item.value"

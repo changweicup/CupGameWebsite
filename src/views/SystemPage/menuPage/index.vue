@@ -1,192 +1,124 @@
 <template>
-  <el-space fill wrap direction="horizontal" style="width: 100%">
+  <el-space fill :size="15" direction="horizontal" style="width: 100%">
     <PageCard>
-      <QueryFilter @loadData="handleData" />
+      <QueryFilter ref="queryFilter" @loadData="handleData"></QueryFilter>
     </PageCard>
     <PageCard>
+      <div class="table-actions">
+        <el-button type="primary" :icon="Plus" @click="handleCreate">新 建</el-button>
+      </div>
       <div class="table-box">
-        <el-table :data="tableData" style="width: 100%">
-          <el-table-column fixed prop="date" label="Date" width="150" />
-          <el-table-column prop="name" label="Name" width="120" />
-          <el-table-column prop="state" label="State" width="120" />
-          <el-table-column prop="city" label="City" width="120" />
-          <el-table-column prop="address" label="Address" />
-          <el-table-column prop="zip" label="Zip" width="120" />
-          <el-table-column fixed="right" label="Operations" width="120">
+        <el-table
+          :data="state.tableData"
+          style="width: 100%; margin-bottom: 20px"
+          row-key="id"
+          v-loading="loading"
+          default-expand-all
+        >
+          <el-table-column type="selection" width="55" align="center" />
+          <el-table-column prop="menu_name" label="菜单名称" sortable />
+          <el-table-column prop="menu_code" label="编码" sortable />
+          <el-table-column prop="menu_type" label="类型" sortable />
+          <el-table-column prop="menu_dsc" label="菜单描述" sortable />
+          <el-table-column prop="menu_status" label="状态" sortable>
             <template #default="scope">
-              <el-button type="text" size="small" @click.prevent="deleteRow(scope.$index)">Remove</el-button>
+              <el-tag
+                :type="scope.row.menu_status === '启用' ? '' : 'success'"
+                disable-transitions
+              >{{ scope.row.menu_status }}</el-tag>
             </template>
           </el-table-column>
-          <template #empty>
-            <el-empty description="description"></el-empty>
-          </template>
+          <el-table-column label="操作" align="center" width="100px">
+            <template #default="scope">
+              <div style="display: flex; justify-content: center;">
+                <el-space>
+                  <Icon
+                    name="Edit"
+                    @click="handleEdit(scope.$index, scope.row)"
+                    :color="ThemeConfig.PrimaryColor"
+                  />
+                  <Icon
+                    name="Delete"
+                    @click="handleEdit(scope.$index, scope.row)"
+                    :color="ThemeConfig.DangerColor"
+                  />
+                </el-space>
+              </div>
+            </template>
+          </el-table-column>
         </el-table>
       </div>
       <el-scrollbar>
         <div class="pagination-box">
-          <el-pagination background layout="total, sizes, prev, pager, next" :total="1000"></el-pagination>
+          <el-pagination
+            v-model:current-page="pagination.currentPage"
+            background
+            layout="total, sizes, prev, pager, next"
+            :total="state.total"
+            v-model:page-size="pagination.pageSize"
+          ></el-pagination>
         </div>
       </el-scrollbar>
     </PageCard>
+    <create-menu ref="menuDrawer" @loadData="handleData" />
   </el-space>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import QueryFilter from './queryFilter.vue';
-import { ElLoading, ElMessage } from 'element-plus';
-import { filterItem } from '.';
+import { getMenuList } from '@/services/menuService';
+import { Plus } from '@element-plus/icons-vue';
+import CreateMenu from './createMenu.vue';
+import { ThemeConfig } from '@/themeConfig'
 
-const tableData = ref([
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036',
-  },
-]);
+const queryFilter = ref();
+const menuDrawer = ref();
+const loading = ref(false);
 
-const deleteRow = (index: number) => {
-  tableData.value.splice(index, 1)
-}
+const state = reactive({
+  tableData: [],
+  total: 0,
+})
 
-const handleData = (filterItem: filterItem) => {
-  const loadingInstance = ElLoading.service({ target: '.el-table__body' });
-  console.log(filterItem);
-  setTimeout(() => {
-    ElMessage.success('查询成功');
-    loadingInstance.close();
-  }, 2000);
-}
+const pagination = reactive({
+  currentPage: 1,
+  pageSize: 10,
+})
 
+const handleData = () => {
+  loading.value = true;
+  const payload = queryFilter.value.filterData;
+  getMenuList(pagination, payload).then(res => {
+    if (res.code && res.code === 200) {
+      state.tableData = res.data.content;
+      state.total = res.data.totalCount;
+    }
+    loading.value = false;
+  })
+};
+
+const handleCreate = () => {
+  if (!menuDrawer.value) return false;
+  menuDrawer.value.openDrawer();
+};
+
+onMounted(() => {
+  handleData()
+});
 </script>
+
 <style lang="scss" scoped>
 .pagination-box {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
   width: 100%;
+}
+
+.table-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 </style>

@@ -1,48 +1,27 @@
 <template>
   <div class="query-filter-box">
     <div class="query-form">
-      <el-form :inline="true" ref="formRef" :model="formItem" class="demo-form-inline">
-        <el-form-item label="Approved by">
-          <el-input v-model="formItem.user" placeholder="Approved by"></el-input>
+      <el-form :inline="true" ref="formRef" :model="formItem" class="demo-form-inline" label-width="70px">
+        <el-form-item label="菜单名称" prop="menu_name">
+          <el-input v-model="formItem.menu_name" placeholder="请输入菜单名称"></el-input>
         </el-form-item>
-        <el-form-item label="Activity zone">
-          <el-select v-model="formItem.region" placeholder="Activity zone">
-            <el-option label="Zone one" value="shanghai"></el-option>
-            <el-option label="Zone two" value="beijing"></el-option>
-          </el-select>
+        <el-form-item label="菜单编码" prop="menu_code">
+          <el-input v-model="formItem.menu_code" placeholder="请输入菜单编码"></el-input>
         </el-form-item>
-        <el-form-item label="Approved by">
-          <el-input v-model="formItem.user" placeholder="Approved by"></el-input>
+        <el-form-item label="菜单描述" prop="menu_dsc">
+          <el-input v-model="formItem.menu_dsc" placeholder="请输入菜单描述"></el-input>
         </el-form-item>
-        <el-form-item label="Activity zone">
-          <el-select v-model="formItem.region" placeholder="Activity zone">
-            <el-option label="Zone one" value="shanghai"></el-option>
-            <el-option label="Zone two" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="Approved by">
-          <el-input v-model="formItem.user" placeholder="Approved by"></el-input>
-        </el-form-item>
-        <el-form-item label="Activity zone">
-          <el-select v-model="formItem.region" placeholder="Activity zone">
-            <el-option label="Zone one" value="shanghai"></el-option>
-            <el-option label="Zone two" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="Approved by">
-          <el-input v-model="formItem.user" placeholder="Approved by"></el-input>
-        </el-form-item>
-        <el-form-item label="Activity zone">
-          <el-select v-model="formItem.region" placeholder="Activity zone">
-            <el-option label="Zone one" value="shanghai"></el-option>
-            <el-option label="Zone two" value="beijing"></el-option>
+        <el-form-item label="状态" prop="menu_status">
+          <el-select v-model="formItem.menu_status" placeholder="状态">
+            <el-option label="开启" value="开启"></el-option>
+            <el-option label="关闭" value="关闭"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
     </div>
     <div class="query-actions">
       <el-button type="primary" @click="onSubmit(formRef)">查询</el-button>
-      <el-button type="default" @click="onSubmit(formRef)">清空</el-button>
+      <el-button type="default" @click="resetFields(formRef)">清空</el-button>
     </div>
   </div>
 </template>
@@ -56,8 +35,10 @@ type FormInstance = InstanceType<typeof ElForm>
 const formRef = ref<FormInstance>()
 
 const formItem:filterItem = reactive({
-  user: '',
-  region: '',
+  menu_name: '',
+  menu_code: '',
+  menu_dsc: '',
+  menu_status: '',
 })
 
 const emit = defineEmits(['loadData'])
@@ -66,13 +47,21 @@ const onSubmit = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-       emit('loadData', formItem);
+       emit('loadData');
     } else {
       return false
     }
   })
 }
 
+const resetFields = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.resetFields();
+}
+
+defineExpose({
+  filterData: formItem,
+})
 </script>
 <style lang="scss" scoped>
 .query-filter-box {

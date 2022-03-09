@@ -33,5 +33,6 @@ defineProps({
     align-items: center;
     vertical-align: middle;
     text-align: center;
+    cursor: pointer;
   }
 </style>

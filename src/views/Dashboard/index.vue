@@ -15,7 +15,7 @@
             <CupRadioButton @change="handleChange" :btnArr="options.btnOptions" :checked="form.checked"></CupRadioButton>
           </div>
           <div>
-            <el-radio-group v-model="form.radio1" size="small" @change="change2">
+            <el-radio-group v-model="form.radio1" @change="change2">
               <el-radio-button label="New York"></el-radio-button>
               <el-radio-button label="Washington"></el-radio-button>
               <el-radio-button label="Los Angeles"></el-radio-button>
@@ -75,10 +75,10 @@ const form = reactive({
 })
 const options = reactive({
   btnOptions: [
-    { label: '新建需求', value: '1' },
-    { label: '评审需求', value: '2' },
-    { label: '需求归档', value: '3' },
-    { label: '需求动态', value: '4' },
+    { label: '新建需求', value: '1', name: '新建需求' },
+    { label: '评审需求', value: '2', name: '评审需求' },
+    { label: '需求归档', value: '3', name: '需求归档' },
+    { label: '需求动态', value: '4', name: '需求动态' },
   ]
 })
 

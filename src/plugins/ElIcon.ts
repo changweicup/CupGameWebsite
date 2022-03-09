@@ -12,7 +12,10 @@ import {
   PartlyCloudy,
   Pear,
   Bowl,
-  Drizzling
+  Drizzling,
+  MostlyCloudy,
+  Delete,
+  Edit,
 } from '@element-plus/icons-vue'
 
 // 所需的组件
@@ -29,7 +32,10 @@ export const components = [
   PartlyCloudy,
   Pear,
   Bowl,
-  Drizzling
+  Drizzling,
+  MostlyCloudy,
+  Delete,
+  Edit,
 ]
 // 注册
 export default (app:App<Element>):void => {

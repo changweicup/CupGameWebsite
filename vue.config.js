@@ -17,6 +17,14 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
     }
   },
 
@@ -36,7 +44,7 @@ module.exports = {
         deleteOriginalAssets: false // 不删除源文件
       }),
       AutoImport({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [ElementPlusResolver({importStyle: false})]
       }),
       Components({
         resolvers: [ElementPlusResolver()]

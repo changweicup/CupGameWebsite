@@ -9,19 +9,21 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^0.2.4",
-    "@vueuse/core": "^7.3.0",
     "@vueup/vue-quill": "^1.0.0-beta.8",
-    "quill-blot-formatter": "^1.0.5",
-    "quill-image-drop-module": "^1.0.3",
+    "@vueuse/core": "^7.3.0",
     "animate.css": "^4.1.1",
+    "axios": "^0.26.0",
     "core-js": "^3.6.5",
     "easy-drag": "^1.4.0",
-    "element-plus": "^1.2.0-beta.6",
+    "element-plus": "^2.0.5",
     "mitt": "^3.0.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.9",
+    "qs": "^6.10.3",
+    "quill-blot-formatter": "^1.0.5",
+    "quill-image-drop-module": "^1.0.3",
     "sortablejs": "^1.14.0",
-    "vue": "^3.0.0",
+    "vue": "^3.2.31",
     "vue-router": "^4.0.0",
     "vuedraggable": "^4.0.3",
     "vuex": "^4.0.2",
@@ -52,7 +54,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
-    "unplugin-auto-import": "^0.5.11",
-    "unplugin-vue-components": "^0.17.13"
+    "unplugin-auto-import": "^0.6.1",
+    "unplugin-vue-components": "^0.17.21"
   }
 }
