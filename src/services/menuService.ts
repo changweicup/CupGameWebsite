@@ -5,7 +5,8 @@ const BASE_SERVICE = '/plat-service';
 
 /**
  * @description: 菜单列表
- * @params {ListItem} params
+ * @params {Pagination} pagination
+ * @params {MListFilterItems} payload
  * @return {Promise}
  */
 export function getMenuList(pagination: Pagination, payload: MListFilterItems): Promise<any> {
@@ -19,7 +20,7 @@ export function getMenuList(pagination: Pagination, payload: MListFilterItems): 
 
 /**
  * @description: 菜单新增
- * @params {ListItem} params
+ * @params {MenuModelType} payload
  * @return {Promise}
  */
 export function createMenu(payload: MenuModelType): Promise<any> {
@@ -32,7 +33,7 @@ export function createMenu(payload: MenuModelType): Promise<any> {
 
 /**
  * @description: 菜单修改
- * @params {ListItem} params
+ * @params {MenuModelType} payload
  * @return {Promise}
  */
 export function updateMenu(payload: MenuModelType): Promise<any> {
@@ -45,7 +46,7 @@ export function updateMenu(payload: MenuModelType): Promise<any> {
 
 /**
  * @description: 菜单删除
- * @params {ListItem} params
+ * @params {string} id
  * @return {Promise}
  */
 export function deleteMenu(id: string): Promise<any> {

@@ -34,12 +34,12 @@
                 <el-space>
                   <Icon
                     name="Edit"
-                    @click="handleEdit(scope.$index, scope.row)"
+                    @click="handleEdit(scope.row)"
                     :color="ThemeConfig.PrimaryColor"
                   />
                   <Icon
                     name="Delete"
-                    @click="handleEdit(scope.$index, scope.row)"
+                    @click="handleDelete(scope.row)"
                     :color="ThemeConfig.DangerColor"
                   />
                 </el-space>
@@ -67,10 +67,11 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from 'vue';
 import QueryFilter from './queryFilter.vue';
-import { getMenuList } from '@/services/menuService';
+import { getMenuList, deleteMenu } from '@/services/menuService';
 import { Plus } from '@element-plus/icons-vue';
 import CreateMenu from './createMenu.vue';
 import { ThemeConfig } from '@/themeConfig'
+import { ElMessage } from 'element-plus';
 
 const queryFilter = ref();
 const menuDrawer = ref();
@@ -103,8 +104,17 @@ const handleCreate = () => {
   menuDrawer.value.openDrawer();
 };
 
+const handleDelete = row => {
+  deleteMenu(row.id).then(res => {
+    if (res.code === 200) {
+      ElMessage.success('删除成功');
+      handleData();
+    }
+  })
+};
+
 onMounted(() => {
-  handleData()
+  handleData();
 });
 </script>
 
