@@ -33,4 +33,4 @@ jobs:
           PASSWORD: ${{ secrets.REMOTE_PASS }}
           HOST: ${{ secrets.REMOTE_HOST }}
           SOURCE: 'dist'
-          TARGET: '/opt/website/'
+          TARGET: '/hundun/website/'
