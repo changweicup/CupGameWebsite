@@ -104,12 +104,12 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
 :deep(.el-menu-item:hover) {
   border-radius: var(--el-border-radius-base);
 }
-:deep(.el-menu-item) {
+.menu-item-wrap .el-menu-item {
   height: 48px;
   line-height: 48px;
   box-sizing: border-box;
 }
-:deep(.el-sub-menu__title) {
+:deep(.el-sub-menu .el-sub-menu__title) {
   height: 48px;
   line-height: 48px;
 }
@@ -137,8 +137,8 @@ const handleMenuClick = (item: { path: RouteLocationRaw }) => {
   box-sizing: border-box;
   padding: 0 15px;
   cursor: pointer;
-  height: 48px;
-  line-height: 48px;
+  height: 40px;
+  line-height: 40px;
 }
 
 .icon-active:hover {

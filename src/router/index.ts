@@ -58,7 +58,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: 'roles',
         name: 'Roles',
-        component: () => import('../views/roles.vue'),
+        component: () => import('../views/SystemPage/userPage/index.vue'),
         meta: {
           title: '角色管理'
         }

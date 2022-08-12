@@ -20,8 +20,8 @@
       </el-form>
     </div>
     <div class="query-actions">
-      <el-button type="primary" @click="onSubmit(formRef)">查询</el-button>
       <el-button type="default" @click="resetFields(formRef)">清空</el-button>
+      <el-button type="primary" @click="onSubmit(formRef)">查询</el-button>
     </div>
   </div>
 </template>

@@ -97,6 +97,7 @@ const handleData = () => {
     }
     loading.value = false;
   })
+  loading.value = false;
 };
 
 const handleCreate = () => {
